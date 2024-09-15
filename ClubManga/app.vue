@@ -1,7 +1,5 @@
 <template>
-  <nav
-    :class="['fixed top-0 left-0 right-0 bg-[#FB6F92] z-50 transition-transform duration-300', { '-translate-y-full': !showNavbar }]"
-  >
+  <nav :class="['fixed top-0 left-0 right-0 bg-[#FB6F92] z-50 transition-transform duration-300', { '-translate-y-full': !showNavbar }]">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <div class="text-xl text-[#FFC2D4]">Logo à venir</div>
       <ul class="hidden sm:flex space-x-6">
@@ -58,7 +56,7 @@
     </section>
 
     <footer id="footer" class="bg-[#FFD6E0] text-[#13000A] py-8 text-center">
-      <p class="text-sm sm:text-base">&copy; 2024 Site Club Manga Dhuoda. Réalisé par Téofane et Mohamany.</p>
+      <p class="text-sm sm:text-base">&copy; 2024 Site Club Manga Dhuoda. Réalisé par Téofane et Bilal.</p>
     </footer>
   </div>
 </template>
