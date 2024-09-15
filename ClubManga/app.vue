@@ -6,7 +6,6 @@
         <li><a href="#home" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Accueil</a></li>
         <li><a href="#presentation" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Présentation</a></li>
         <li><a href="#projects" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Projets</a></li>
-        <li><a href="#activities" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Activités</a></li>
         <li><a href="#members" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Membres</a></li>
       </ul>
       <div class="sm:hidden">
@@ -22,7 +21,6 @@
       <li class="py-2"><a href="#home" class="block text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Accueil</a></li>
       <li class="py-2"><a href="#presentation" class="block text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Présentation</a></li>
       <li class="py-2"><a href="#projects" class="block text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Projets</a></li>
-      <li class="py-2"><a href="#activities" class="block text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Activités</a></li>
       <li class="py-2"><a href="#members" class="block text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Membres</a></li>
     </ul>
   </nav>
@@ -56,7 +54,7 @@
     </section>
 
     <footer id="footer" class="bg-[#FFD6E0] text-[#13000A] py-8 text-center">
-      <p class="text-sm sm:text-base">&copy; 2024 Site Club Manga Dhuoda. Réalisé par Téofane et Bilal.</p>
+      <p class="text-sm sm:text-base">&copy; 2024 Site Club Manga Dhuoda. Réalisé par <a href="https://jjba.fandom.com/fr/wiki/Gyro_Zeppeli" target="_blank">Téofane</a> et Bilal.</p>
     </footer>
   </div>
 </template>
