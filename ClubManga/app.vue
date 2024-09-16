@@ -54,8 +54,21 @@
     </section>
 
     <footer id="footer" class="bg-[#FFD6E0] text-[#13000A] py-8 text-center">
-      <p class="text-sm sm:text-base">&copy; 2024 Site Club Manga Dhuoda. Réalisé par <a href="https://jjba.fandom.com/fr/wiki/Gyro_Zeppeli" target="_blank">Téofane</a> et Bilal.</p>
+      <p class="text-sm sm:text-base">&copy; 2024 Site Club Manga Dhuoda. Réalisé par <a @click="toogleEasteregg">Téofane</a> et Bilal.</p>
     </footer>
+
+    <div v-if="isEastereggOpen" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-20 z-50">
+      <div class="text-center">
+        <svg @click="toogleEasteregg" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 100 100" class="absolute top-0 sm:top-5 right-0 sm:right-[25%] opacity-75 color-[#13000A]">
+          <rect x="45" y="10" width="10" height="80" fill="black" transform="rotate(45 50 50)"/>
+          <rect x="10" y="45" width="80" height="10" fill="black" transform="rotate(45 50 50)"/>
+        </svg>
+
+        <img src="@/assets/SGSPTHTWMID4CLTODA4R.png" class="mb-4" alt="Easter Egg Image"/>
+        <p class="text-white text-lg">Watashi no stando <a href="https://jjba.fandom.com/fr/wiki/Silver_Chariot" target="_blank" >Silver</a> <a href="https://jjba.fandom.com/fr/wiki/Gold_Experience" target="_blank">golden</a> <a href="https://jjba.fandom.com/fr/wiki/Star_Platinum" target="_blank">star platinium</a> <a href="https://jjba.fandom.com/fr/wiki/The_Hand" target="_blank">the hand</a> <a href="https://jjba.fandom.com/fr/wiki/The_World" target="_blank">the world</a> <a href="https://jjba.fandom.com/fr/wiki/Made_in_Heaven" target="_blank">made in</a> <a href="https://jjba.fandom.com/fr/wiki/Dirty_Deeds_Done_Dirt_Cheap" target="_blank">dirty deeds done dirt cheap</a> <a href="https://jojowiki.com/D4C_Love_Train/fr" target="_blank">love train</a> <a href="https://jjba.fandom.com/fr/wiki/The_World_Over_Heaven" target="_blank">overheaven</a><a href="https://jjba.fandom.com/fr/wiki/Heaven%27s_Door" target="_blank">'s door</a> <a href="https://jjba.fandom.com/fr/wiki/Tusk#Tusk_ACT4" target="_blank">act 4</a> <a href="https://jjba.fandom.com/fr/wiki/Gold_Experience_Requiem" target="_blank">requiem</a></p>
+        </div>
+    </div>
+
   </div>
 </template>
 
@@ -66,6 +79,7 @@ export default {
       isMenuOpen: false,
       showNavbar: true,
       lastScrollPosition: 0,
+      isEastereggOpen: false,
     };
   },
   mounted() {
@@ -78,6 +92,9 @@ export default {
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
+    },
+    toogleEasteregg() {
+      this.isEastereggOpen = !this.isEastereggOpen;
     },
     onScroll() {
       const currentScrollPosition = window.pageYOffset;
