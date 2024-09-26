@@ -42,8 +42,16 @@
         <div class="overflow-hidden">
           <img v-for="(image, index) in images":key="index":src="image":alt="'Image ' + (index + 1)" v-show="currentIndex === index" class="w-full h-96 object-cover transition-opacity duration-500" />
         </div>
-        <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#FB6F92] text-white px-4 py-2 rounded-l-lg hover:bg-[#ff8fa8] transition-colors duration-300">Précédent</button>
-        <button @click="nextImage" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#FB6F92] text-white px-4 py-2 rounded-r-lg hover:bg-[#ff8fa8] transition-colors duration-300">Suivant</button>
+        <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#FB6F92] text-white px-4 py-2 rounded-l-lg hover:bg-[#ff8fa8] transition-colors duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4M12 4l-8 8 8 8" fill="#FB6F92"/>
+          </svg>
+        </button>
+        <button @click="nextImage" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#FB6F92] text-white px-4 py-2 rounded-r-lg hover:bg-[#ff8fa8] transition-colors duration-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16M12 4l8 8-8 8" fill="#FB6F92"/>
+          </svg>
+        </button>
       </div>
     </section>
 
