@@ -89,9 +89,9 @@ export default {
       isEastereggOpen: false,
       currentIndex: 0,
       images: [
-        '@/assets/SGSPTHTWMID4CLTODA4R.png',
-        '@/assets/SGSPTHTWMID4CLTODA4R.png',
-        '@/assets/SGSPTHTWMID4CLTODA4R.png',
+        require('@/assets/SGSPTHTWMID4CLTODA4R.png'),
+        require('@/assets/SGSPTHTWMID4CLTODA4R.png'),
+        require('@/assets/SGSPTHTWMID4CLTODA4R.png'),
       ],
     };
   },
