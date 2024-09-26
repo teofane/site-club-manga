@@ -42,12 +42,12 @@
         <div class="overflow-hidden">
           <img v-for="(image, index) in images":key="index":src="image":alt="'Image ' + (index + 1)" v-show="currentIndex === index" class="w-full h-96 object-cover" />
         </div>
-        <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2  text-[#FFEBF1] hover:text-[#FFC2D4] transition-colors duration-300 px-4 py-2">
+        <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2  bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4M12 4l-8 8 8 8" fill="none"/>
           </svg>
         </button>
-        <button @click="nextImage" class="absolute right-0 top-1/2 transform -translate-y-1/2 text-[#FFEBF1] hover:text-[#FFC2D4] transition-colors duration-300 px-4 py-2">
+        <button @click="nextImage" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16M12 4l8 8-8 8" fill="none"/>
           </svg>
