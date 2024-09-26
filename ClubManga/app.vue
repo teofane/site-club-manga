@@ -35,7 +35,7 @@
     <section id="presentation" class="min-h-screen bg-[#FFC2D1] text-[#13000A] flex items-center justify-center">
       <div class="text-center">
         <h2 class="text-3xl mb-4">Présentation</h2>
-        <p class="max-w-2xl">Nous sommes le club manga du lycée Dhuoda ...</p>
+        <p class="max-w-2xl">Le Club Manga du Lycée Dhuoda est un espace pour les passionnés de mangas, d'anime, de dessin et de culture japonaise. Que vous soyez amateur d'œuvres japonaises ou simplement curieux de découvrir les traditions et l'art du Japon, notre club vous invite à partager vos passions et à explorer ensemble l'univers fascinant de la culture nippone. Rejoignez-nous et plongez dans cet univers captivant !</p>
       </div>
     </section>
 
