@@ -32,10 +32,18 @@
       </div>
     </section>
 
-    <section id="presentation" class="min-h-screen bg-[#FFC2D1] text-[#13000A] flex items-center justify-center">
-      <div class="text-center">
+    <section id="presentation" class="min-h-screen bg-[#FFC2D1] text-[#13000A] flex flex-col items-center justify-center">
+      <div class="text-center mb-4">
         <h2 class="text-3xl mb-4">Présentation</h2>
         <p class="max-w-2xl">Le Club Manga du Lycée Dhuoda est un espace pour les passionnés de mangas, d'anime, de dessin et de culture japonaise. Que vous soyez amateur d'œuvres japonaises ou simplement curieux de découvrir les traditions et l'art du Japon, notre club vous invite à partager vos passions et à explorer ensemble l'univers fascinant de la culture nippone. Rejoignez-nous et plongez dans cet univers captivant !</p>
+      </div>
+
+      <div class="relative w-full max-w-lg mx-auto">
+        <div class="overflow-hidden">
+          <img v-for="(image, index) in images" :src="image" :alt="'Image ' + (index + 1)" v-show="currentIndex === index" class="w-full h-96 object-cover transition-opacity duration-500" />
+        </div>
+        <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#FB6F92] text-white px-4 py-2 rounded-l-lg hover:bg-[#ff8fa8] transition-colors duration-300">Précédent</button>
+        <button @click="nextImage" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#FB6F92] text-white px-4 py-2 rounded-r-lg hover:bg-[#ff8fa8] transition-colors duration-300">Suivant</button>
       </div>
     </section>
 
@@ -66,9 +74,8 @@
 
         <img src="@/assets/SGSPTHTWMID4CLTODA4R.png" class="mb-4" alt="Easter Egg Image"/>
         <p class="text-white text-lg">Watashi no stando <a href="https://jjba.fandom.com/fr/wiki/Silver_Chariot" target="_blank" >Silver</a> <a href="https://jjba.fandom.com/fr/wiki/Gold_Experience" target="_blank">golden</a> <a href="https://jjba.fandom.com/fr/wiki/Star_Platinum" target="_blank">star platinium</a> <a href="https://jjba.fandom.com/fr/wiki/The_Hand" target="_blank">the hand</a> <a href="https://jjba.fandom.com/fr/wiki/The_World" target="_blank">the world</a> <a href="https://jjba.fandom.com/fr/wiki/Made_in_Heaven" target="_blank">made in</a> <a href="https://jjba.fandom.com/fr/wiki/Dirty_Deeds_Done_Dirt_Cheap" target="_blank">dirty deeds done dirt cheap</a> <a href="https://jojowiki.com/D4C_Love_Train/fr" target="_blank">love train</a> <a href="https://jjba.fandom.com/fr/wiki/The_World_Over_Heaven" target="_blank">overheaven</a><a href="https://jjba.fandom.com/fr/wiki/Heaven%27s_Door" target="_blank">'s door</a> <a href="https://jjba.fandom.com/fr/wiki/Tusk#Tusk_ACT4" target="_blank">act 4</a> <a href="https://jjba.fandom.com/fr/wiki/Gold_Experience_Requiem" target="_blank">requiem</a></p>
-        </div>
+      </div>
     </div>
-
   </div>
 </template>
 
@@ -80,6 +87,12 @@ export default {
       showNavbar: true,
       lastScrollPosition: 0,
       isEastereggOpen: false,
+      currentIndex: 0,
+      images: [
+        '@/assets/SGSPTHTWMID4CLTODA4R.png',
+        '@/assets/SGSPTHTWMID4CLTODA4R.png',
+        '@/assets/SGSPTHTWMID4CLTODA4R.png',
+      ],
     };
   },
   mounted() {
@@ -106,6 +119,12 @@ export default {
       }
 
       this.lastScrollPosition = currentScrollPosition;
+    },
+    nextImage() {
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    },
+    prevImage() {
+      this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
     },
   },
 };
