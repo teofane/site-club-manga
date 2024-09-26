@@ -40,7 +40,7 @@
 
       <div class="relative w-full max-w-lg mx-auto">
         <div class="overflow-hidden">
-          <img v-for="(image, index) in images":key="index":src="image":alt="'Image ' + (index + 1)" v-show="currentIndex === index" class="w-full h-96 object-cover" />
+          <img v-for="(image, index) in images":key="index":src="image":alt="'Image ' + (index + 1)" v-show="currentIndex === index" class="w-full h-96 object-cover rounded-lg" />
         </div>
         <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2  bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
