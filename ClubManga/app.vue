@@ -1,12 +1,12 @@
 <template>
   <nav :class="['fixed top-0 left-0 right-0 bg-[#FB6F92] z-50 transition-transform duration-300', { '-translate-y-full': !showNavbar }]">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="text-xl text-[#FFC2D4]">Logo à venir</div>
+      <div class="text-xl text-[#FFC2D4]">Club Manga Dhuoda</div>
       <ul class="hidden sm:flex space-x-6">
         <li><a href="#home" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Accueil</a></li>
         <li><a href="#presentation" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Présentation</a></li>
         <li><a href="#projects" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Projets</a></li>
-        <li><a href="#members" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Membres</a></li>
+        <li><a href="#Journee" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Journée Japon</a></li>
       </ul>
       <div class="sm:hidden">
         <button @click="toggleMenu" class="text-[#FFEBF1]">
@@ -21,7 +21,7 @@
       <li class="py-2"><a href="#home" class="block text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Accueil</a></li>
       <li class="py-2"><a href="#presentation" class="block text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Présentation</a></li>
       <li class="py-2"><a href="#projects" class="block text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Projets</a></li>
-      <li class="py-2"><a href="#members" class="block text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Membres</a></li>
+      <li class="py-2"><a href="#Journee" class="block text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Journée Japon</a></li>
     </ul>
   </nav>
 
@@ -35,21 +35,21 @@
     <section id="presentation" class="min-h-screen bg-[#FFC2D1] text-[#13000A] flex flex-col items-center justify-center">
       <div class="text-center mb-4">
         <h2 class="text-3xl mb-4">Présentation</h2>
-        <p class="max-w-2xl">Le Club Manga du Lycée Dhuoda est un espace pour les passionnés de mangas, d'anime, de dessin et de culture japonaise. Que vous soyez amateur d'œuvres japonaises ou simplement curieux de découvrir les traditions et l'art du Japon, notre club vous invite à partager vos passions et à explorer ensemble l'univers fascinant de la culture nippone. Rejoignez-nous et plongez dans cet univers captivant !</p>
+        <p class="max-w-2xl mx-auto p-4 text-gray-800 leading-relaxed text-lg md:text-xl">Le Club Manga du Lycée Dhuoda est un espace pour les passionnés de mangas, d'anime, de dessin et de culture japonaise. Que vous soyez amateur d'œuvres japonaises ou simplement curieux de découvrir les traditions et l'art du Japon, notre club vous invite à partager vos passions et à explorer ensemble l'univers fascinant de la culture nippone. Rejoignez-nous et plongez dans cet univers captivant !</p>
       </div>
 
       <div class="relative w-full max-w-lg mx-auto">
         <div class="overflow-hidden">
-          <img v-for="(image, index) in images":key="index":src="image":alt="'Image ' + (index + 1)" v-show="currentIndex === index" class="w-full h-96 object-cover transition-opacity duration-500" />
+          <img v-for="(image, index) in images":key="index":src="image":alt="'Image ' + (index + 1)" v-show="currentIndex === index" class="w-full h-96 object-cover" />
         </div>
-        <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-[#FB6F92] text-white px-4 py-2 rounded-l-lg hover:bg-[#ff8fa8] transition-colors duration-300">
+        <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2  text-[#FFEBF1] hover:text-[#FFC2D4] transition-colors duration-300 px-4 py-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4M12 4l-8 8 8 8" fill="#FB6F92"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4M12 4l-8 8 8 8" fill="none"/>
           </svg>
         </button>
-        <button @click="nextImage" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#FB6F92] text-white px-4 py-2 rounded-r-lg hover:bg-[#ff8fa8] transition-colors duration-300">
+        <button @click="nextImage" class="absolute right-0 top-1/2 transform -translate-y-1/2 text-[#FFEBF1] hover:text-[#FFC2D4] transition-colors duration-300 px-4 py-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16M12 4l8 8-8 8" fill="#FB6F92"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16M12 4l8 8-8 8" fill="none"/>
           </svg>
         </button>
       </div>
@@ -62,10 +62,10 @@
       </div>
     </section>
 
-    <section id="members" class="min-h-screen bg-[#FFC2D1] text-[#13000A] flex items-center justify-center">
+    <section id="Journee" class="min-h-screen bg-[#FFC2D1] text-[#13000A] flex items-center justify-center">
       <div class="text-center">
-        <h2 class="text-3xl mb-4">Membres</h2>
-        <p class="max-w-2xl">Présentation des différents membres.</p>
+        <h2 class="text-3xl mb-4">Journée japon</h2>
+        <p class="max-w-2xl">Présentation de la journee</p>
       </div>
     </section>
 
@@ -81,7 +81,7 @@
         </svg>
 
         <img src="@/assets/SGSPTHTWMID4CLTODA4R.png" class="mb-4" alt="Easter Egg Image"/>
-        <p class="text-white text-lg">Watashi no stando <a href="https://jjba.fandom.com/fr/wiki/Silver_Chariot" target="_blank" >Silver</a> <a href="https://jjba.fandom.com/fr/wiki/Gold_Experience" target="_blank">golden</a> <a href="https://jjba.fandom.com/fr/wiki/Star_Platinum" target="_blank">star platinium</a> <a href="https://jjba.fandom.com/fr/wiki/The_Hand" target="_blank">the hand</a> <a href="https://jjba.fandom.com/fr/wiki/The_World" target="_blank">the world</a> <a href="https://jjba.fandom.com/fr/wiki/Made_in_Heaven" target="_blank">made in</a> <a href="https://jjba.fandom.com/fr/wiki/Dirty_Deeds_Done_Dirt_Cheap" target="_blank">dirty deeds done dirt cheap</a> <a href="https://jojowiki.com/D4C_Love_Train/fr" target="_blank">love train</a> <a href="https://jjba.fandom.com/fr/wiki/The_World_Over_Heaven" target="_blank">overheaven</a><a href="https://jjba.fandom.com/fr/wiki/Heaven%27s_Door" target="_blank">'s door</a> <a href="https://jjba.fandom.com/fr/wiki/Tusk#Tusk_ACT4" target="_blank">act 4</a> <a href="https://jjba.fandom.com/fr/wiki/Gold_Experience_Requiem" target="_blank">requiem</a></p>
+        <p class="text-[#FFEBF1] text-lg">Watashi no stando <a href="https://jjba.fandom.com/fr/wiki/Silver_Chariot" target="_blank" >Silver</a> <a href="https://jjba.fandom.com/fr/wiki/Gold_Experience" target="_blank">golden</a> <a href="https://jjba.fandom.com/fr/wiki/Star_Platinum" target="_blank">star platinium</a> <a href="https://jjba.fandom.com/fr/wiki/The_Hand" target="_blank">the hand</a> <a href="https://jjba.fandom.com/fr/wiki/The_World" target="_blank">the world</a> <a href="https://jjba.fandom.com/fr/wiki/Made_in_Heaven" target="_blank">made in</a> <a href="https://jjba.fandom.com/fr/wiki/Dirty_Deeds_Done_Dirt_Cheap" target="_blank">dirty deeds done dirt cheap</a> <a href="https://jojowiki.com/D4C_Love_Train/fr" target="_blank">love train</a> <a href="https://jjba.fandom.com/fr/wiki/The_World_Over_Heaven" target="_blank">overheaven</a><a href="https://jjba.fandom.com/fr/wiki/Heaven%27s_Door" target="_blank">'s door</a> <a href="https://jjba.fandom.com/fr/wiki/Tusk#Tusk_ACT4" target="_blank">act 4</a> <a href="https://jjba.fandom.com/fr/wiki/Gold_Experience_Requiem" target="_blank">requiem</a></p>
         </div>
     </div>
 
