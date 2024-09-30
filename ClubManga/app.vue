@@ -42,7 +42,7 @@
         <div class="overflow-hidden">
           <img v-for="(image, index) in images":key="index":src="image":alt="'Image ' + (index + 1)" v-show="currentIndex === index" class="w-full h-96 object-cover rounded-lg" />
         </div>
-        <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2  bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
+        <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4M12 4l-8 8 8 8" fill="none"/>
           </svg>
@@ -55,10 +55,27 @@
       </div>
     </section>
 
-    <section id="projects" class="min-h-screen bg-[#FFEBF1] text-[#13000A] flex items-center justify-center">
+    <section id="projects" class="min-h-screen bg-[#FFEBF1] text-[#13000A] flex flex-col items-center justify-center">
       <div class="text-center">
         <h2 class="text-3xl mb-4">Projets</h2>
-        <p class="max-w-2xl">à venir</p>
+        <p class="max-w-2xl mx-auto p-4 text-gray-800 leading-relaxed text-lg md:text-xl">Le club manga offre de nombreux projets :</p>
+      </div>
+
+      <div class="relative w-full max-w-lg mx-auto">
+        <div class="overflow-hidden">
+          <img v-for="(section, index) in Sections" :key="index" :src="section[0]" v-show="currentSectionIndex === index" class="w-full h-96 object-cover rounded-lg" />
+          <p v-for="(name, index) in sectionNames" :key="index" v-show="currentSectionIndex === index"class="text-[#13000A] text-center text-lg mt-4">{{ name }}</p>
+        </div>
+        <button @click="prevSection" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4M12 4l-8 8 8 8" fill="none" />
+          </svg>
+        </button>
+        <button @click="nextSection" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16M12 4l8 8-8 8" fill="none" />
+          </svg>
+        </button>
       </div>
     </section>
 
@@ -94,6 +111,12 @@ import image2 from '@/assets/image2.jpg';
 import image3 from '@/assets/image3.jpg';
 import image4 from '@/assets/image4.jpg';
 import image5 from '@/assets/image5.jpg';
+import peinture1 from '@/assets/peinture1.jpg';
+import peinture2 from '@/assets/peinture2.jpg';
+import peinture3 from '@/assets/peinture3.jpg';
+import restaurant1 from '@/assets/restaurant.jpg';
+import one_shot from '@/assets/one-shot.jpg';
+
 export default {
   data() {
     return {
@@ -103,7 +126,18 @@ export default {
       isEastereggOpen: false,
       currentIndex: 0,
       images: [image1, image2, image3, image4, image5],
+      peinture: [peinture1, peinture2, peinture3],
+      restaurant: [restaurant1],
+      Concours_de_One_Shots: [one_shot],
+      currentIndex: 0,
+      currentSectionIndex: 0,
+      Sections: [],
+      sectionNames: ['Peinture', 'Restaurant', 'Concours de One Shots'],
     };
+  },
+  created() {
+    this.Sections = [this.peinture, this.restaurant, this.Concours_de_One_Shots];
+    this.currentSection = this.Sections[0];
   },
   mounted() {
     this.lastScrollPosition = window.pageYOffset;
@@ -136,6 +170,12 @@ export default {
     prevImage() {
       this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
     },
+    nextSection() {
+    this.currentSectionIndex = (this.currentSectionIndex + 1) % this.Sections.length;
+      },
+        prevSection() {
+          this.currentSectionIndex = (this.currentSectionIndex - 1 + this.Sections.length) % this.Sections.length;
+      },
   },
 };
 </script>
