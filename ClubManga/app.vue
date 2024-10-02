@@ -42,6 +42,10 @@
         <div class="overflow-hidden">
           <img v-for="(image, index) in images":key="index":src="image":alt="'Image ' + (index + 1)" v-show="currentIndex === index" class="w-full h-96 object-cover rounded-lg" />
         </div>
+          <NuxtLink v-for="(section, index) in Sections" :key="index" :to="sectionRoutes[index]">
+            <img :src="section[0]" v-show="currentSectionIndex === index" class="w-full h-96 object-cover rounded-lg" />
+            <p v-show="currentSectionIndex === index" class="text-[#13000A] text-center text-lg mt-4">{{ sectionNames[index] }}</p>
+            </NuxtLink>
         <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4M12 4l-8 8 8 8" fill="none"/>
@@ -129,10 +133,10 @@ export default {
       peinture: [peinture1, peinture2, peinture3],
       restaurant: [restaurant1],
       Concours_de_One_Shots: [one_shot],
-      currentIndex: 0,
       currentSectionIndex: 0,
       Sections: [],
       sectionNames: ['Peinture', 'Restaurant', 'Concours de One Shots'],
+      sectionRoutes: ['/projets/peinture', '/projets/restaurant', '/projets/concours-one-shot'],
     };
   },
   created() {
