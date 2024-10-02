@@ -1,7 +1,7 @@
 <template>
   <nav :class="['fixed top-0 left-0 right-0 bg-[#FB6F92] z-50 transition-transform duration-300', { '-translate-y-full': !showNavbar }]">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="text-xl text-[#FFC2D4]">Club Manga Dhuoda</div>
+      <NuxtLink to="/"><div class="text-xl text-[#FFC2D4]">Club Manga Dhuoda</div></NuxtLink>
       <ul class="hidden sm:flex space-x-6">
         <li><a href="#home" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Accueil</a></li>
         <li><a href="#presentation" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Présentation</a></li>
