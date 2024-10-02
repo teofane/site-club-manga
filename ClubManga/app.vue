@@ -135,7 +135,7 @@ export default {
       currentSectionIndex: 0,
       Sections: [],
       sectionNames: ['Peinture', 'Restaurant', 'Concours de One Shots'],
-      sectionRoutes: ['/projets/peinture', '/projets/restaurant', '/projets/concours-one-shot'],
+      sectionRoutes: ['/peinture', '/restaurant', '/concours-one-shot'],
     };
   },
   created() {
