@@ -6,15 +6,15 @@
     </p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <nuxt-link to="/projets/peinture" class="flex flex-col items-center">
-        <img src="@/assets/peinture-thumbnail.jpg" alt="Peinture" class="w-full h-64 object-cover rounded-lg shadow-md"/>
+        <img src="~/assets/peinture-thumbnail.jpg" alt="Peinture" class="w-full h-64 object-cover rounded-lg shadow-md"/>
         <h2 class="mt-2 text-lg font-semibold">Peinture</h2>
       </nuxt-link>
       <nuxt-link to="/projets/restaurant" class="flex flex-col items-center">
-        <img src="@/assets/restaurant-thumbnail.jpg" alt="Restaurant" class="w-full h-64 object-cover rounded-lg shadow-md"/>
+        <img src="~/assets/restaurant-thumbnail.jpg" alt="Restaurant" class="w-full h-64 object-cover rounded-lg shadow-md"/>
         <h2 class="mt-2 text-lg font-semibold">Restaurant</h2>
       </nuxt-link>
       <nuxt-link to="/projets/concours-one-shot" class="flex flex-col items-center">
-        <img src="@/assets/one-shot-thumbnail.jpg" alt="Concours de One Shots" class="w-full h-64 object-cover rounded-lg shadow-md"/>
+        <img src="~/assets/one-shot-thumbnail.jpg" alt="Concours de One Shots" class="w-full h-64 object-cover rounded-lg shadow-md"/>
         <h2 class="mt-2 text-lg font-semibold">Concours de One Shots</h2>
       </nuxt-link>
     </div>
