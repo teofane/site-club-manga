@@ -23,13 +23,6 @@
     </p>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'ConcoursOneShotPage'
-}
-</script>
-
 <style scoped>
 /* Styles spécifiques à la page concours One Shot */
 .container {
