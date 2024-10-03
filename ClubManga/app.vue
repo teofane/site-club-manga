@@ -67,6 +67,7 @@
               <img :src="section[0]" v-show="currentSectionIndex === index" class="w-full h-96 object-cover rounded-lg" />
               <p v-show="currentSectionIndex === index" class="text-[#13000A] text-center text-lg mt-4">{{ sectionNames[index] }}</p>
             </NuxtLink>
+          <NuxtPage />
         </div>
         
         <button @click="prevSection" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
@@ -135,7 +136,7 @@ export default {
       currentSectionIndex: 0,
       Sections: [],
       sectionNames: ['Peinture', 'Restaurant', 'Concours de One Shots'],
-      sectionRoutes: ['/peinture', '/restaurant', '/concours-one-shot'],
+      sectionRoutes: ['/projets/peinture', '/projets/restaurant', '/projets/concours-one-shot'],
     };
   },
   created() {
