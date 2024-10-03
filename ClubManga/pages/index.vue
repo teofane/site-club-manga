@@ -1,11 +1,14 @@
 <template>
-  <nav :class="['fixed top-0 left-0 right-0 bg-[#FB6F92] z-50 transition-transform duration-300', { '-translate-y-full': !showNavbar }]">
+  <nav :class="['fixed top-0 left-0 right-0 bg-[#963852] z-50 transition-transform duration-300', { '-translate-y-full': !showNavbar }]">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <NuxtLink to="/"><div class="text-xl text-[#FFC2D4]">Club Manga Dhuoda</div></NuxtLink>
       <ul class="hidden sm:flex space-x-6">
         <li><a href="#home" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Accueil</a></li>
+        <li>|</li>
         <li><a href="#presentation" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Présentation</a></li>
+        <li>|</li>
         <li><a href="#projects" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Projets</a></li>
+        <li>|</li>
         <li><a href="#Journee" class="text-[#FFEBF1] hover:text-[#FFC2D4] transition duration-300">Journée Japon</a></li>
       </ul>
       <div class="sm:hidden">
@@ -37,6 +40,22 @@
         <h2 class="text-3xl mb-4">Présentation</h2>
         <p class="max-w-2xl mx-auto p-4 text-gray-800 leading-relaxed text-lg md:text-xl">Le Club Manga du Lycée Dhuoda est un espace pour les passionnés de mangas, d'anime, de dessin et de culture japonaise. Que vous soyez amateur d'œuvres japonaises ou simplement curieux de découvrir les traditions et l'art du Japon, notre club vous invite à partager vos passions et à explorer ensemble l'univers fascinant de la culture nippone. Rejoignez-nous et plongez dans cet univers captivant !</p>
       </div>
+
+      <div class="relative w-full max-w-lg mx-auto">
+        <div class="overflow-hidden">
+          <img v-for="(image, index) in images":key="index":src="image":alt="'Image ' + (index + 1)" v-show="currentIndex === index" class="w-full h-96 object-cover rounded-lg" />
+        </div>
+        <button @click="prevImage" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4M12 4l-8 8 8 8" fill="none"/>
+          </svg>
+        </button>
+        <button @click="nextImage" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16M12 4l8 8-8 8" fill="none"/>
+          </svg>
+        </button>
+      </div>
     </section>
 
     <section id="projects" class="min-h-screen bg-[#FFEBF1] text-[#13000A] flex flex-col items-center justify-center">
@@ -52,17 +71,99 @@
               <p v-show="currentSectionIndex === index" class="text-[#13000A] text-center text-lg mt-4">{{ sectionNames[index] }}</p>
             </NuxtLink>
         </div>
+        <button @click="prevSection" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4M12 4l-8 8 8 8" fill="none" />
+          </svg>
+        </button>
+        <button @click="nextSection" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-500/40 rounded-full hover:bg-gray-500/60 text-[#FFEBF1] transition-colors duration-300 px-4 py-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12h16M12 4l8 8-8 8" fill="none" />
+          </svg>
+        </button>
       </div>
     </section>
 
-    <section id="Journee" class="min-h-screen bg-[#FFC2D1] text-[#13000A] flex items-center justify-center">
-      <div class="text-center">
-        <h2 class="text-3xl mb-4">Journée japon</h2>
-        <p class="max-w-2xl">Présentation de la journée</p>
-      </div>
-    </section>
 
-    <footer id="footer" class="bg-[#FFD6E0] text-[#13000A] py-8 text-center">
+    <section
+  id="Journee"
+  class="relative min-h-screen bg-[#FFC2D1] text-[#13000A] flex flex-col items-center justify-start bg-[url('assets/bg2.png')] bg-repeat"
+  style="background-size: 6px 12px;"
+>
+  <div class="absolute top-0 left-0 w-full h-4 border-t-4 border-[#963852]"></div>
+
+  <h2 class="text-4xl mt-4">Journée Japon</h2>
+
+  <div class="flex justify-center gap-6 w-full max-w-5xl px-4 mt-10 relative">
+    <!-- Case 1: Origami -->
+    <div
+      @click="handleClick('Origami')"
+      :class="getCardClass('Origami')"
+      class="flex-1 border-2 border-[#963852] rounded-sm p-4 relative cursor-pointer flex flex-col md:flex-row items-center justify-center"
+    >
+      <img
+        :src="getIcon('Origami')"
+        alt="Origami Icon"
+        class="w-8 h-8 md:mr-2 mb-2 md:mb-0"
+      />
+      <h3 :class="{ 'text-white': selectedCard === 'Origami' }" class="text-xl text-center">Atelier Origami</h3>
+      <div 
+        v-if="selectedCard === 'Origami'" 
+        class="absolute w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-[#963852] bottom-[-8px] left-[calc(50%-8px)]" 
+      ></div>
+    </div>
+
+    <!-- Case 2: Dessin -->
+    <div
+      @click="handleClick('Dessin')"
+      :class="getCardClass('Dessin')"
+      class="flex-1 border-2 border-[#963852] rounded-sm p-4 relative cursor-pointer flex flex-col md:flex-row items-center justify-center"
+    >
+      <img
+        :src="getIcon('Dessin')"
+        alt="Dessin Icon"
+        class="w-8 h-8 md:mr-2 mb-2 md:mb-0"
+      />
+      <h3 :class="{ 'text-white': selectedCard === 'Dessin' }" class="text-xl text-center">Atelier Dessin</h3>
+      <div 
+        v-if="selectedCard === 'Dessin'" 
+        class="absolute w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-[#963852] bottom-[-8px] left-[calc(50%-8px)]" 
+      ></div>
+    </div>
+
+    <!-- Case 3: Blind Test -->
+    <div
+      @click="handleClick('BlindTest')"
+      :class="getCardClass('BlindTest')"
+      class="flex-1 border-2 border-[#963852] rounded-sm p-4 relative cursor-pointer flex flex-col md:flex-row items-center justify-center"
+    >
+      <img
+        :src="getIcon('BlindTest')"
+        alt="Blind Test Icon"
+        class="w-8 h-8 md:mr-2 mb-2 md:mb-0"
+      />
+      <h3 :class="{ 'text-white': selectedCard === 'BlindTest' }" class="text-xl text-center">Atelier Blindtest</h3>
+      <div 
+        v-if="selectedCard === 'BlindTest'" 
+        class="absolute w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-[#963852] bottom-[-8px] left-[calc(50%-8px)]" 
+      ></div>
+    </div>
+  </div>
+
+
+  <!-- Petit carré blanc avec coins arrondis et bordure -->
+  <div class="mt-6 w-full max-w-lg mx-auto bg-white bg-opacity-50 border-2 border-white border-opacity-75 rounded-lg p-4">
+    <p class="text-black text-center text-lg">{{ displayedText }}</p>
+  </div>
+
+  <div class="absolute bottom-0 left-0 w-full h-4 border-b-4 border-[#963852]"></div>
+</section>
+
+
+
+
+
+    <footer id="footer" class="bg-[#963852] text-[#ffebf1] py-8 text-center">
       <p class="text-sm sm:text-base">&copy; 2024 Site Club Manga Dhuoda. Réalisé par <a @click="toogleEasteregg">Téofane</a> et Bilal.</p>
     </footer>
 
@@ -89,44 +190,114 @@ import image5 from '@/assets/image5.jpg';
 import peinture1 from '@/assets/peinture1.jpg';
 import peinture2 from '@/assets/peinture2.jpg';
 import peinture3 from '@/assets/peinture3.jpg';
-import restaurant from '@/assets/restaurant.jpg';
-import oneShot from '@/assets/one-shot.jpg';
+import restaurant1 from '@/assets/restaurant.jpg';
+import one_shot from '@/assets/one-shot.jpg';
+import origamiIcon from '@/assets/origami.png';
+import origamiIconSelected from '@/assets/origami-b.png';
+import dessinIcon from '@/assets/dessin.png';
+import dessinIconSelected from '@/assets/dessin-b.png';
+import blindtestIcon from '@/assets/blindtest.png';
+import blindtestIconSelected from '@/assets/blindtest-b.png';
 
 export default {
   data() {
     return {
       isMenuOpen: false,
       showNavbar: true,
-      currentSectionIndex: 0,
+      lastScrollPosition: 0,
       isEastereggOpen: false,
-      Sections: [
-        [image1, 'Image de projet 1'],
-        [image2, 'Image de projet 2'],
-        [image3, 'Image de projet 3'],
-        [image4, 'Image de projet 4'],
-        [image5, 'Image de projet 5'],
-      ],
+      currentIndex: 0,
+      images: [image1, image2, image3, image4, image5],
+      peinture: [peinture1, peinture2, peinture3],
+      restaurant: [restaurant1],
+      Concours_de_One_Shots: [one_shot],
+      currentSectionIndex: 0,
+      Sections: [],
       sectionNames: ['Peinture', 'Restaurant', 'Concours de One Shots'],
       sectionRoutes: ['/projets/peinture', '/projets/restaurant', '/projets/concours-one-shot'],
+      selectedCard: 'Origami', // Par défaut, la première case est sélectionnée
+      displayedText: `L'atelier origami sera organisé par Yanis Thomas et THEAUPHANEUH, les origami c'est cool HARRAY. Vous pourre venir participer, venez comme vous êtes tutududutu`, // Texte affiché par défaut
+      icons: {
+        Origami: {
+          default: origamiIcon,
+          selected: origamiIconSelected,
+        },
+        Dessin: {
+          default: dessinIcon,
+          selected: dessinIconSelected,
+        },
+        BlindTest: {
+          default: blindtestIcon,
+          selected: blindtestIconSelected,
+        }
+      },
+      selectedCard: 'Origami',
     };
+  },
+  created() {
+    this.Sections = [this.peinture, this.restaurant, this.Concours_de_One_Shots];
+    this.currentSection = this.Sections[0];
+  },
+  mounted() {
+    this.lastScrollPosition = window.pageYOffset;
+    window.addEventListener('scroll', this.onScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll);
   },
   methods: {
     toggleMenu() {
       this.isMenuOpen = !this.isMenuOpen;
     },
-    toogleEasteregg() {
+    toggleEasteregg() {
       this.isEastereggOpen = !this.isEastereggOpen;
     },
-    scrollHandler() {
-      const scrollY = window.scrollY;
-      this.showNavbar = scrollY < window.innerHeight;
+    onScroll() {
+      const currentScrollPosition = window.pageYOffset;
+
+      if (currentScrollPosition > this.lastScrollPosition && currentScrollPosition > 100) {
+        this.showNavbar = false;
+      } else {
+        this.showNavbar = true;
+      }
+
+      this.lastScrollPosition = currentScrollPosition;
     },
-  },
-  mounted() {
-    window.addEventListener('scroll', this.scrollHandler);
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.scrollHandler);
+    nextImage() {
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    },
+    prevImage() {
+      this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+    },
+    nextSection() {
+      this.currentSectionIndex = (this.currentSectionIndex + 1) % this.Sections.length;
+    },
+    prevSection() {
+      this.currentSectionIndex = (this.currentSectionIndex - 1 + this.Sections.length) % this.Sections.length;
+    },
+    handleClick(card) {
+      this.selectedCard = card;
+      // Met à jour le texte affiché selon la case sélectionnée
+      if (card === 'Origami') {
+        this.displayedText = `L'atelier origami sera organisé par Yanis Thomas et THEAUPHANEUH, les origami c'est cool HARRAY. Vous pourre venir participer, venez comme vous êtes tutududutu`;
+      } else if (card === 'Dessin') {
+        this.displayedText = 'Dessin';
+      } else if (card === 'BlindTest') {
+        this.displayedText = 'Blind Test';
+      }
+    },
+    getCardClass(card) {
+      return {
+        'bg-[#963852] text-white': this.selectedCard === card, // Change couleur de la case sélectionnée
+        'bg-white text-black hover:text-[#963852]': this.selectedCard !== card, // Couleur par défaut avec hover
+      };
+    },
+    getIcon(card) {
+    if (this.selectedCard === card) {
+      return this.icons[card].selected; // Icône en blanc pour la sélection
+    }
+    return this.icons[card].default; // Icône par défaut
+  }
   },
 };
 </script>
