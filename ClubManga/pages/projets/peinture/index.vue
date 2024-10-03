@@ -12,10 +12,3 @@ export default {
   name: 'PeinturePage'
 }
 </script>
-
-<style scoped>
-/* Styles spécifiques à la page peinture */
-.container {
-  padding: 20px;
-}
-</style>
