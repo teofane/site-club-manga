@@ -24,10 +24,3 @@ export default {
   name: 'HomePage'
 }
 </script>
-
-<style scoped>
-/* Styles spécifiques à la page d'accueil */
-.container {
-  padding: 20px;
-}
-</style>
