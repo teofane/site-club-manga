@@ -12,10 +12,3 @@ export default {
   name: 'RestaurantPage'
 }
 </script>
-
-<style scoped>
-/* Styles spécifiques à la page restaurant */
-.container {
-  padding: 20px;
-}
-</style>
